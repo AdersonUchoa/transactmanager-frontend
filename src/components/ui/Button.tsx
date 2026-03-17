@@ -26,7 +26,7 @@ export function Button({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap disabled:opacity-40 disabled:cursor-not-allowed ${styles[variant]}`}
+      className={`cursor-pointer text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap disabled:opacity-40 disabled:cursor-not-allowed ${styles[variant]}`}
     >
       {label}
     </button>

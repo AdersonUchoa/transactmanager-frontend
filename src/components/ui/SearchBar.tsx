@@ -43,7 +43,7 @@ export function SearchBar({
         {value && (
           <button
             onClick={onClear}
-            className="text-zinc-500 hover:text-zinc-300 transition-colors text-xs"
+            className="cursor-pointer text-zinc-500 hover:text-zinc-300 transition-colors text-xs"
           >
             ✕
           </button>
@@ -54,7 +54,7 @@ export function SearchBar({
 
       <button
         onClick={onSearch}
-        className="bg-zinc-700 hover:bg-zinc-600 transition-colors text-white text-sm font-medium px-4 py-2 rounded-lg"
+        className="cursor-pointer bg-zinc-700 hover:bg-zinc-600 transition-colors text-white text-sm font-medium px-4 py-2 rounded-lg"
       >
         Pesquisar
       </button>

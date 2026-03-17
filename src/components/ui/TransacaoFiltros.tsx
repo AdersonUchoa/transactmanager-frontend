@@ -143,7 +143,7 @@ export default function TransacaoFiltros({
 
       <button
         onClick={handleSearch}
-        className="bg-zinc-700 hover:bg-zinc-600 text-white text-sm px-4 py-2 rounded-lg transition-colors"
+        className="cursor-pointer bg-zinc-700 hover:bg-zinc-600 text-white text-sm px-4 py-2 rounded-lg transition-colors"
       >
         Pesquisar
       </button>
@@ -151,7 +151,7 @@ export default function TransacaoFiltros({
       {hasFilters && (
         <button
           onClick={handleClear}
-          className="text-zinc-400 hover:text-white text-sm transition-colors"
+          className="cursor-pointer text-zinc-400 hover:text-white text-sm transition-colors"
         >
           Limpar
         </button>

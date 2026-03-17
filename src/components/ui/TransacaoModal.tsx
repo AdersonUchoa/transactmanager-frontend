@@ -146,7 +146,7 @@ export function TransacaoModal({ isOpen, onClose, onSuccess, transacao }: Transa
           <h2 className="text-lg font-semibold text-white">
             {isEditing ? "Editar Transação" : "Nova Transação"}
           </h2>
-          <button onClick={onClose} className="text-zinc-500 hover:text-white transition-colors text-sm">
+          <button onClick={onClose} className="cursor-pointer text-zinc-500 hover:text-white transition-colors text-sm">
             ✕
           </button>
         </div>
@@ -233,14 +233,14 @@ export function TransacaoModal({ isOpen, onClose, onSuccess, transacao }: Transa
         <div className="flex justify-end gap-2 pt-1">
           <button
             onClick={onClose}
-            className="px-4 py-2 text-sm text-zinc-400 hover:text-white transition-colors rounded-lg hover:bg-zinc-800"
+            className="cursor-pointer px-4 py-2 text-sm text-zinc-400 hover:text-white transition-colors rounded-lg hover:bg-zinc-800"
           >
             Cancelar
           </button>
           <button
             onClick={handleSubmit}
             disabled={loading || loadingData}
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-lg"
+            className="cursor-pointer px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-lg"
           >
             {loading ? "Salvando..." : isEditing ? "Salvar Alterações" : "Criar Transação"}
           </button>
