@@ -1,5 +1,5 @@
 import type { ApiResponse } from "../types/apiResponse";
-import type { Transacao, TransacaoById } from "../types/entities";
+import type { Transacao } from "../types/entities";
 import type { TransacaoDetalhesFilters, TransacaoFilters } from "../types/filters";
 import type { PaginatedResult } from "../types/paginatedResult";
 import type { CreateTransacaoRequest, UpdateTransacaoRequest } from "../types/requests";
@@ -12,7 +12,7 @@ export const transacaoService = {
     request<ApiResponse<PaginatedResult<Transacao>>>(`${BASE}${toQueryString({ ...filters })}`),
 
   getById: (id: number) =>
-    request<ApiResponse<TransacaoById>>(`${BASE}/${id}`),
+    request<ApiResponse<Transacao>>(`${BASE}/${id}`),
 
   getCount: () =>
     request<ApiResponse<number>>(`${BASE}/count`),

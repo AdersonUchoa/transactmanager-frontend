@@ -33,22 +33,3 @@ export interface Transacao {
     idade: number;
   };
 }
-
-export interface TransacaoById {
-  id: number;
-  descricao: string;
-  valor: number;
-  tipo: "Despesa" | "Receita";
-  categoriaId: number;
-  pessoaId: number;
-  pessoa: {
-    id: number;
-    nome: string;
-    idade: number;
-  };
-  categoria: {
-    id: number;
-    descricao: string;
-    finalidade: string;
-  };
-}
