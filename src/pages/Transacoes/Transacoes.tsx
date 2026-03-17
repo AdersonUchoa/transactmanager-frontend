@@ -42,9 +42,12 @@ export default function Transacoes() {
   const [transacaoParaExcluir, setTransacaoParaExcluir] = useState<Transacao | null>(null);
   const [deleting, setDeleting] = useState(false);
 
+  const [pessoaId, setPessoaId] = useState<number | null>(null);
+  const [categoriaId, setCategoriaId] = useState<number | null>(null);
+
   useEffect(() => {
     fetchTransacoes();
-  }, [page, search, tipo, valor]);
+  }, [page, search, tipo, valor, pessoaId, categoriaId]);
 
   async function fetchTransacoes() {
     setLoading(true);
@@ -55,6 +58,8 @@ export default function Transacoes() {
         search: search || undefined,
         tipo: tipo as "Despesa" | "Receita" | undefined || undefined,
         valor: valor ? Number(valor) : undefined,
+        pessoaId: pessoaId ?? undefined,
+        categoriaId: categoriaId ?? undefined,
       });
       setPagination(response.data);
       setTransacoes(response.data.items);
@@ -65,11 +70,13 @@ export default function Transacoes() {
     }
   }
 
-  function handleSearch(valorNumerico?: number | null) {
+  function handleSearch(valorNumerico?: number | null, pessoaId?: number | null, categoriaId?: number | null) {
     setPage(1);
     setSearch(searchInput);
     setTipo(tipoInput);
     setValor(valorNumerico != null ? String(valorNumerico) : "");
+    setPessoaId(pessoaId ?? null);
+    setCategoriaId(categoriaId ?? null);
   }
 
   function handleClear() {
@@ -78,6 +85,8 @@ export default function Transacoes() {
     setSearch("");
     setTipo("");
     setValor("");
+    setPessoaId(null);
+    setCategoriaId(null);
   }
 
   function handleEdit(transacao: Transacao) {
@@ -114,7 +123,7 @@ export default function Transacoes() {
         </p>
       </div>
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-start justify-between gap-4">
         <TransacaoFiltros
           searchInput={searchInput}
           setSearchInput={setSearchInput}
@@ -123,6 +132,8 @@ export default function Transacoes() {
           onSearch={handleSearch}
           onClear={handleClear}
           hasFilters={!!(search || tipo || valor)}
+          showPessoaFilter
+          showCategoriaFilter
         />
         <Button
           label="+ Nova Transação"
